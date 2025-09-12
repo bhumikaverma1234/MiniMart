@@ -14,7 +14,6 @@ import java.util.List;
 
 @Service
 public class CartServiceImpl implements CartService {
-
     @Autowired
     private CartItemRepository cartItemRepository;
 
@@ -41,9 +40,11 @@ public class CartServiceImpl implements CartService {
         cartItem.setUser(user);
         cartItem.setProduct(product);
         cartItem.setQuantity(quantity);
+        cartItem.setPrice(product.getPrice() * quantity); // ✅ Price calculate karo
 
         return cartItemRepository.save(cartItem);
     }
+
 
     @Override
     public void removeCartItem(Long cartItemId) {

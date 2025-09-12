@@ -7,6 +7,7 @@ import com.bhumika.MiniMart.Repository.PaymentRepository;
 import com.bhumika.MiniMart.Service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.bhumika.MiniMart.Entity.OrderStatus;
 
 import java.util.List;
 
@@ -18,13 +19,6 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Autowired
     private OrderRepository orderRepository;
-
-    // Constructor Injection (best practice)
-//    public PaymentServiceImpl(PaymentRepository paymentRepository,
-//                              OrderRepository orderRepository) {
-//        this.paymentRepository = paymentRepository;
-//        this.orderRepository = orderRepository;
-//    }
 
     @Override
     public List<Payment> getAllPayments() {
@@ -40,18 +34,31 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public Payment makePayment(Long orderId, Double amount, String method) {
-        // order fetch karo
         Order order = orderRepository.findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found with id: " + orderId));
+                .orElseThrow(() -> new RuntimeException("Order not found with id " + orderId));
 
+        if (order.getTotalAmount() != amount) {
+            throw new RuntimeException("Payment amount does not match order total!");
+        }
+
+        // Create Payment
         Payment payment = new Payment();
-        payment.setOrder(order); // ✅ relation set
         payment.setAmount(amount);
         payment.setPaymentMethod(method);
-        payment.setStatus("SUCCESS"); // ya "PENDING"
+        payment.setStatus("SUCCESS");
+        payment.setOrder(order);
 
+        // Link payment with order
+        order.setPayment(payment);
+
+        // Update order status after payment
+        order.setStatus(OrderStatus.PAID);
+
+        // Save both order and payment
+        orderRepository.save(order);
         return paymentRepository.save(payment);
     }
+
 
 
 

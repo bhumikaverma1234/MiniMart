@@ -1,5 +1,6 @@
 package com.bhumika.MiniMart.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,6 +12,13 @@ public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
+
+    @JoinColumn(name = "cart_id")
+    @ManyToOne
+    @JsonIgnore
+    private Cart cart;
 
     private int quantity;
     private double price;
@@ -26,6 +34,7 @@ public class CartItem {
     // CartItem -> Order
     @ManyToOne
     @JoinColumn(name = "order_id")
+    @JsonIgnore
     private Order order;
 
     // getters and setters

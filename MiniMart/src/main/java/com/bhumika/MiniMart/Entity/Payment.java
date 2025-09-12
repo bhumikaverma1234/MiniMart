@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 @Table(name = "payments")
 public class Payment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,7 +14,6 @@ public class Payment {
     private String paymentMethod;
     private String status;
     private double amount;
-
     // Payment -> Order
     @OneToOne
     @JoinColumn(name = "order_id")

@@ -1,46 +1,47 @@
-# MiniMart 🛒 - Spring Boot Backend
+# =====================
+# Build and Target Folders
+# =====================
+target/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-MiniMart is a professional e-commerce backend application built with **Spring Boot**.  
-It provides secure APIs for managing products, orders, customers, and admin operations.
+# =====================
+# Maven Wrapper
+# =====================
+.mvn/wrapper/maven-wrapper.jar
 
----
+# =====================
+# IDE Files
+# =====================
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
 
-## 🚀 Features
+# Eclipse / STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-### Customer Features
-- Browse products and view details
-- Place orders and track order status
-- Manage personal information and addresses
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-### Admin Features
-- Add, update, and delete products
-- View and manage all customer orders
-- Update order status (Pending, Confirmed, Shipped, Delivered, Cancelled)
-- Monitor stock levels
+# VS Code
+.vscode/
 
-### Security
-- Role-based access control (Customer/Admin)
-- Authentication and authorization for secure API access
-- Validation for input data
-
-### Order & Inventory Management
-- Create and update orders
-- Automatic calculation of total order amount
-- Maintain product inventory and stock consistency
-
----
-
-## 🛠️ Tech Stack
-- Java, Spring Boot
-- Hibernate / JPA
-- MySQL
-- RESTful APIs
-- Spring Security
-
----
-
-## ⚡ Getting Started
-
-1. Clone the repository:
-```bash
-git clone https://github.com/bhumikaverma1234/MiniMart.git
+# =====================
+# Sensitive Files (Never Push to GitHub)
+# =====================
+src/main/resources/application.properties

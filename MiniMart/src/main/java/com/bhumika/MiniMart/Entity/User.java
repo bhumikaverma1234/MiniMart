@@ -20,6 +20,7 @@ public class User {
     private String name;
     private String email;
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonIgnore
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -27,6 +28,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference   // ✅ Ye order list ko control karega
+    @JsonIgnore
     private List<Order> orders = new ArrayList<>();
     // getters and setters
 }
