@@ -28,6 +28,12 @@ It provides secure APIs for managing products, orders, customers, and admin oper
 - Automatic calculation of total order amount
 - Maintain product inventory and stock consistency
 
+### 📖 API Documentation (Swagger UI)
+- Integrated **Swagger UI** for interactive API documentation
+- URL: `http://localhost:8081/swagger-ui/index.html`
+- Explore all REST endpoints visually in browser
+- Supports JWT authentication — login/register to get a token, then click **Authorize** button to test secured APIs
+
 ---
 
 ## 🛠️ Tech Stack
@@ -36,6 +42,7 @@ It provides secure APIs for managing products, orders, customers, and admin oper
 - MySQL
 - RESTful APIs
 - Spring Security
+- Swagger (Springdoc OpenAPI)
 
 ---
 
