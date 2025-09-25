@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class ProductController {
 
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Create a new product", description = "Adds a new product to the MiniMart inventory")
     public ResponseEntity<ProductDto> create(@Valid @RequestBody ProductDto dto) {
         Product product = DtoMapper.toProductEntity(dto);
@@ -47,12 +49,14 @@ public class ProductController {
 
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Update a product", description = "Updates the details of an existing product")
     public Product updateProduct(@PathVariable Long id, @RequestBody Product product) {
         return productService.updateProduct(id, product);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Delete a product", description = "Deletes a product from the inventory using its ID")
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
