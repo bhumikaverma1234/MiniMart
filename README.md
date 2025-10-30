@@ -1,6 +1,9 @@
 
 # MiniMart 🛒 - Spring Boot Backend
 
+[![Docker Image](https://img.shields.io/badge/Docker%20Hub-bhumika67233%2Fminimart-blue?logo=docker)](https://hub.docker.com/r/bhumika67233/minimart)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-MiniMart--Backend-black?logo=github)](https://github.com/bhumikaverma1234/MiniMart)
+
 MiniMart is a professional e-commerce backend application built with **Spring Boot**.  
 It provides secure APIs for managing products, orders, customers, and admin operations.
 
@@ -44,7 +47,7 @@ It provides secure APIs for managing products, orders, customers, and admin oper
 - RESTful APIs
 - Spring Security
 - Swagger (Springdoc OpenAPI)
-
+- Docker  (Containerization and deployment)
 ---
 
 ## ⚡ Getting Started
@@ -52,4 +55,7 @@ It provides secure APIs for managing products, orders, customers, and admin oper
 1. Clone the repository:
 ```bash
 git clone https://github.com/bhumikaverma1234/MiniMart.git
->>>>>>> 2c1114fde7ebbbb1c0ce89579b796fd00022c8b6
+cd MiniMart
+
+
+
