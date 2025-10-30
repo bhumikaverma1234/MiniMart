@@ -1,0 +1,10 @@
+#build + IDE
+target/
+.idea
+*.iml
+
+#real secrets (never commit)
+src/main/resources/appplication.properties
+src/main/resources/
+application-locak.propperties
+.env
